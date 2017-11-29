@@ -8,6 +8,7 @@ lat = list(data['LAT'])
 lon = list(data['LON'])
 elev = list(data['ELEV'])
 
+
 def color_producer(elevation):
     if elevation < 1500:
         return 'green'
@@ -18,8 +19,14 @@ def color_producer(elevation):
 
 
 for lt, ln, el in zip(lat, lon, elev):
-    fg.add_child(folium.CircleMarker(location=[lt, ln], radius=6, fill=True, color='gray', fill_opacity=0.7, fill_color=color_producer(el), popup=str(el)+" m"))
+    fg.add_child(folium.CircleMarker(location=[lt, ln], radius=6, fill=True, color='gray', fill_opacity=0.7,
+                                     fill_color=color_producer(el), popup=str(el)+" m"))
 
+# add another layer: the GeoJson object
+# the x inside the lambda expression is 'feature' in geojson object ----can refer to the doc of folium library
+fg.add_child(folium.GeoJson(data=(open('world.json','r', encoding='utf-8-sig')).read(),
+                            style_function=lambda x: {'fillColor': 'green' if x['properties']['POP2005'] < 10000000
+                            else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
 map.add_child(fg)
 
 map.save('Map1.html')
