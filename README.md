@@ -1,7 +1,7 @@
 # Python-Web-Mapping
  A web map created by using **folium**
  The map includes a layer control panel from which you can toggle the features--such as population and volcanoes-- on and off. 
-
+ The colors of countries on the map represent their population, and the colors of the circle markers represent the elevations   of the volcanoes.
 # Screenshots
 
 <img width="1434" alt="2017-11-28 11 23 28 pm" src="https://user-images.githubusercontent.com/19476654/33370707-3506ae6e-d4ad-11e7-99a5-66c044ebafe9.png">
