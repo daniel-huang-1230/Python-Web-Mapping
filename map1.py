@@ -1,7 +1,7 @@
 import folium, pandas
 # first create a map object
-map = folium.Map(location=[38.58, -99], zoom_start=6, tiles="Mapbox Bright")
-data = pandas.read_csv("Volcanoes_USA.txt")
+map = folium.Map(location=[38.58, -99], zoom_start=6, tiles='Stamen Terrain')
+data = pandas.read_csv('Volcanoes_USA.txt')
 fgv = folium.FeatureGroup(name='Volcanoes')
 # convert the pandas series to python list
 lat = list(data['LAT'])
